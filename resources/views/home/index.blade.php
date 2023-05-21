@@ -8,5 +8,13 @@
 </head>
 <body>
     <h1>Home</h1>
+
+    @auth 
+        <p>Bienvenido {{auth()->user()->name}}, estas autenticado a la pagina</p>
+    @endauth
+    
+    @guest
+        <p>Para ver el contenido <a href="{{route('login.show')}}">Inicia sesion</a></p>
+    @endguest
 </body>
 </html>
