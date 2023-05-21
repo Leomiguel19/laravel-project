@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,7 +22,7 @@ Route::get('/', function () {
 });
 
 Route::controller(LoginController::class)->group(function ($router) {
-    Route::get('/login', 'show');
+    Route::get('/login', 'show')->name('login.show');
     Route::post('/login', 'login')->name('login');
 });
 
@@ -31,4 +32,6 @@ Route::controller(RegisterController::class)->group(function ($router) {
 });
 
 Route::get('/home', [HomeController::class, 'index'])->name('home.index');
+
+Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 

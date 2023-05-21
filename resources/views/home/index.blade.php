@@ -11,6 +11,7 @@
 
     @auth 
         <p>Bienvenido {{auth()->user()->name}}, estas autenticado a la pagina</p>
+        <a href="{{ route("logout") }}">Cerrar sesion</a>
     @endauth
     
     @guest
