@@ -22,16 +22,16 @@ Route::get('/', function () {
 });
 
 Route::controller(LoginController::class)->group(function ($router) {
-    Route::get('/login', 'show')->name('login.show');
+    Route::get('/login', 'show')->name('login.perform');
     Route::post('/login', 'login')->name('login');
 });
 
 Route::controller(RegisterController::class)->group(function ($router) {
     Route::get('/register', 'show');
-    Route::post('/register', 'register');
+    Route::post('/register', 'register')->name('register.perform');
 });
 
 Route::get('/home', [HomeController::class, 'index'])->name('home.index');
 
-Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
+Route::get('/logout', [LogoutController::class, 'logout'])->name('logout.perform');
 
