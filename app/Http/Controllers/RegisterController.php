@@ -18,7 +18,16 @@ class RegisterController extends Controller
 
     public function register(RegisterRequest $request)
     {
-        $user = User::create($request->validated());
-        return response()->json(['message' => 'User saved correctly!'], 200);
+        try{
+            // DB::beginTransaction();
+            $user = User::create($request->validated());
+            return redirect('/login')->with('success', "Su cuenta ha sido creada exitosamente!");
+            // DB::commit();
+            // return response()->json(['message' => 'User saved correctly!'], 200);
+        } catch (\Throwable $th) {
+            Log::error($th);
+            // DB::rollBack();
+            // return response()->json(['status' => 'error', 'message' => $th], 400);
+        }   
     }
 }

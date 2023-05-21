@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginRequest;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -23,7 +24,7 @@ class LoginController extends Controller
             $credentials = $request->getCredentials();
         
             if(!Auth::validate($credentials)){
-                return redirect()->to('login')->withErrors('auth.failed');
+                return redirect()->to('login')->withErrors('El username/correo y/o la contraseña son incorrectos.');
             }
             $user = Auth::getProvider()->retrieveByCredentials($credentials);
     

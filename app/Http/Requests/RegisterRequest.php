@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 class RegisterRequest extends FormRequest
 {
@@ -31,4 +33,25 @@ class RegisterRequest extends FormRequest
             // 'image' => 'required'
         ];
     }
+
+    
+    public function messages()
+    {
+        return [
+            'name.required' => 'El nombre es obligatorio.',
+            'username.required' => 'El nombre de usuario es obligatorio.',
+            'username.unique' => 'Este nombre de usuario ya se encuentra registrado.',
+            'email.unique' => 'Este correo electronico ya se encuentra registrado.',
+            'password_confirmation' => 'Las contraseñas no coinciden.',
+            'password.min' => 'Las contraseña debe tener minimo 8 caracteres.',
+        ];
+    }
+
+    // protected function failedValidation(Validator $validator)
+    // {
+    //     throw new HttpResponseException(response()->json([
+    //         'errors' => $validator->errors(),
+    //         'status' => true
+    //     ], 422));
+    // }
 }
