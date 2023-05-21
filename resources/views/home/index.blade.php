@@ -1,14 +1,20 @@
 @extends('layouts.auth-master')
 
 @section('content')
-    <h1>Home</h1>
 
-    @auth 
-        <p>Bienvenido {{auth()->user()->name}}, estas autenticado a la pagina</p>
-        <a href="{{ route("logout.perform") }}">Cerrar sesion</a>
-    @endauth
+<div class="row">
+    <div class="container pt-5">
+        <h1>Home</h1>
 
-    @guest
-        <p>Para ver el contenido <a href="{{route('login.perform')}}">Inicia sesion</a></p>
-    @endguest
+        @auth 
+            <p>Bienvenido <strong>{{auth()->user()->name}}</strong>, estas autenticado a la pagina</p>
+            <a href="{{ route("logout.perform") }}">Cerrar sesion</a>
+        @endauth
+    
+        @guest
+            <p>Para ver el contenido <a href="{{route('login.perform')}}">Inicia sesion</a></p>
+        @endguest
+    </div>
+</div>
+    
 @endsection

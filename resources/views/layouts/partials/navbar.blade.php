@@ -12,8 +12,11 @@
             </ul>
 
             @auth
-                {{ auth()->user()->name }}
-                <div class="text-end px-2">
+
+                <div class="text-center px-4">
+                    {{ auth()->user()->name }}
+                </div>
+                <div class="text-end px-4">
                     <a href="{{ route('logout.perform') }}" class="btn btn-outline-light me-2">Cerrar sesión</a>
                 </div>
             @endauth
