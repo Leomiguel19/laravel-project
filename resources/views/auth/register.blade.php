@@ -10,6 +10,7 @@
     <form action="/register" method="POST">
         @csrf
         <input type="text" name="name" placeholder="Ingrese su nombre" value="test">
+        <input type="text" name="username" placeholder="Ingrese su nombre" value="testusername">
         <input type="email" name="email" placeholder="Ingrese su correo" value="test@email.com">
         <input type="password" name="password" placeholder="Ingrese su contraseña" value="test@1234">
         <input type="password" name="password_confirmation" placeholder="Ingrese su contraseña" value="test@1234">
