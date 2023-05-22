@@ -30,7 +30,8 @@ class RegisterRequest extends FormRequest
             'password' =>'required|min:8',
             'password_confirmation' =>'required|same:password',
             'phone' => 'required|numeric',
-            // 'image' => 'required'
+            'image' => 'required',
+            'image' => 'mimes:jpeg,png,jpg,gif|max:2048'
         ];
     }
 
@@ -44,6 +45,8 @@ class RegisterRequest extends FormRequest
             'email.unique' => 'Este correo electronico ya se encuentra registrado.',
             'password_confirmation' => 'Las contraseñas no coinciden.',
             'password.min' => 'Las contraseña debe tener minimo 8 caracteres.',
+            'image.mimes' => 'Solo puedes agregar archivos tipo jpeg, png, jpg y gif',
+            'image.max' => 'El peso maximo de la imagen es de 2mb'
         ];
     }
 

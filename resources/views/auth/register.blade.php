@@ -7,7 +7,7 @@
                 <div class="card">
                     <h1 class="h3 my-4 fw-bold text-center">Crear cuenta</h1>
                     <div class="card-body">
-                        <form method="post" action="{{ route('register.perform') }}">
+                        <form method="post" action="{{ route('register.perform') }}" enctype="multipart/form-data">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                 
                             <div class="form-group form-floating mb-3">
@@ -56,7 +56,15 @@
                                     <span class="text-danger text-left">{{ $errors->first('password_confirmation') }}</span>
                                 @endif
                             </div>
-                                
+                                                
+                            <div class="form-group form-floating mb-3">
+                                <input type="file" class="form-control" name="image" value="{{ old('image') }}" placeholder="Imagen de perfil" accept="image/*">
+                                <label for="floatingimage">Imagen de perfil</label>
+                                @if ($errors->has('image'))
+                                    <span class="text-danger text-left">{{ $errors->first('image') }}</span>
+                                @endif
+                            </div>
+
                             <button class="w-100 btn btn-lg btn-primary" type="submit">Registrar</button>
                         </form>
                     </div>

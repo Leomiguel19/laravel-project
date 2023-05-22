@@ -5,3 +5,13 @@ body {
     min-height: 100%;
     background-color: rgb(193,193,193);
 }
+
+.card-img-profile{
+    width: 75px;
+    border-radius: 75px;
+    margin-left: 20px;
+}
+
+ul{
+    list-style: none;
+}
