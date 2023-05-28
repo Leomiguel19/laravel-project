@@ -1,8 +1,8 @@
 <h1  style="text-align: center; padding-bottom:40px">Project Laravel</h1>
 Project created in Laravel 10, in which I put into practice some of my knowledge acquired in the last years.
 
-- [How to install](#How to install).
-- [Knowledge/Tools/skills used](#Knowledge/Technologies/skills used).
+- [How to install](#how-to-install).
+- [Knowledge/Tools/skills used](#knowledgetechnologiesskills-used).
 
 ## How to install
 Steps to execute this project:
